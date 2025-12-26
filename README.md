@@ -11,8 +11,8 @@
 
 ## 🖼️ Vista Previa
 
-![Interfaz de Usuario](screenshot.png)
-*(Nota: El diseño utiliza el modo "Dark" por defecto para una apariencia profesional y cómoda)*
+![Interfaz de Usuario](agenda.png)
+
 
 ---
 
