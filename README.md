@@ -1,65 +1,73 @@
-# 📒 Agenda de Contactos - CRUD con Python y CustomTkinter
+# 📘 Agenda de Contactos - Gestión Inteligente con Python
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-![GUI](https://img.shields.io/badge/CustomTkinter-UI-green?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![SQLite](https://img.shields.io/badge/SQLite-Database-07405E?style=for-the-badge&logo=sqlite)
+![CustomTkinter](https://img.shields.io/badge/GUI-CustomTkinter-blueviolet?style=for-the-badge)
+![Status](https://img.shields.io/badge/Estado-Terminado-success?style=for-the-badge)
 
-> **Aplicación de escritorio para la gestión eficiente de contactos, implementando principios de POO y Arquitectura en Capas.**
-
----
-
-## 📖 Descripción del Proyecto
-
-Este proyecto es una aplicación de escritorio desarrollada en **Python** que permite gestionar una libreta de contactos personal. [cite_start]El objetivo principal fue crear una herramienta intuitiva que realice operaciones **ABM** (Alta, Baja y Modificación) con persistencia de datos[cite: 1094, 1096].
-
-[cite_start]A diferencia de scripts básicos, este sistema implementa una arquitectura robusta separando la lógica de negocio de la interfaz gráfica, y utiliza **CustomTkinter** para ofrecer una experiencia de usuario moderna con modo oscuro nativo[cite: 1095].
+> Una aplicación de escritorio moderna y robusta para la gestión de contactos (ABM), diseñada con una arquitectura modular y principios de Programación Orientada a Objetos (POO).
 
 ---
 
-## ✨ Características Principales
+## 🖼️ Vista Previa
 
-* [cite_start]**CRUD Completo:** Funcionalidades para Crear, Leer, Actualizar y Eliminar contactos de forma sencilla[cite: 1096].
-* [cite_start]**Interfaz Moderna:** Uso de la librería `customtkinter` para widgets estilizados y soporte de temas (Dark Mode)[cite: 1134].
-* [cite_start]**Persistencia de Datos:** Almacenamiento permanente en base de datos **SQLite** (`agenda.db`), asegurando que la información no se pierda al cerrar la app[cite: 1147].
-* **Validaciones Inteligentes:**
-    * [cite_start]Prevención de contactos duplicados (insensible a mayúsculas/minúsculas)[cite: 1127].
-    * Control de campos obligatorios antes de guardar.
-* [cite_start]**Seguridad:** Uso de consultas SQL parametrizadas para prevenir inyección de código[cite: 1128].
+![Interfaz de Usuario](screenshot.png)
+*(Asegúrate de incluir una captura de pantalla de tu aplicación aquí para mostrar la interfaz Dark Mode)*
+
+---
+
+## 🚀 Descripción del Proyecto
+
+Este sistema permite administrar una libreta de contactos personal de manera intuitiva y segura. [cite_start]A diferencia de scripts básicos, este proyecto implementa una **arquitectura de software profesional** que separa la lógica de negocio de la interfaz gráfica[cite: 8].
+
+[cite_start]El objetivo principal fue crear una herramienta escalable que garantice la persistencia de datos mediante **SQLite** y ofrezca una experiencia de usuario agradable gracias a **CustomTkinter**[cite: 5].
+
+### ✨ Características Principales
+
+* **CRUD Completo:** Alta, Baja, Modificación y Consulta de contactos.
+* [cite_start]**Interfaz Moderna:** Diseño "Dark Mode" con bordes redondeados y estética profesional[cite: 44].
+* **Validación de Datos:**
+    * Verificación de campos obligatorios.
+    * [cite_start]**Prevención de duplicados:** El sistema detecta si un contacto (nombre + apellido) ya existe antes de guardar[cite: 37].
+* [cite_start]**Seguridad:** Uso de consultas SQL parametrizadas para evitar inyecciones SQL.
+* [cite_start]**Persistencia:** Los datos se guardan automáticamente en `agenda.db`[cite: 59].
 
 ---
 
 ## 🏗️ Arquitectura del Software
 
-[cite_start]El proyecto sigue el principio de **Separación de Responsabilidades**, dividiendo el código en dos capas lógicas[cite: 1098]:
+[cite_start]El proyecto sigue el principio de **Separación de Responsabilidades**, dividiendo el código en dos capas lógicas[cite: 7, 8]:
 
-### 1. Capa de Modelo (`modelo.py`)
-Actúa como el "cerebro" de la aplicación. Contiene:
-* [cite_start]**Clase `Contacto`:** Representación orientada a objetos de la entidad (blueprint)[cite: 1109].
-* **Clase `AdministradorDB`:** Funciona como un **DAO (Data Access Object)**. [cite_start]Es la única clase que interactúa con SQL, encargándose de conectar, crear tablas y ejecutar sentencias DDL/DML[cite: 1115, 1116].
+### 1. Capa de Vista (`main.py`) 🖥️
+* **Función:** Es la "cara" de la aplicación. Maneja la interacción con el usuario y dibuja la interfaz gráfica.
+* [cite_start]**Detalle:** Actúa como controlador, capturando eventos y comunicándose con el modelo, pero **nunca ejecuta SQL directamente**[cite: 47].
 
-### 2. Capa de Vista (`main.py`)
-Es la "cara" de la aplicación. Se encarga de:
-* Dibujar la interfaz gráfica (Ventana, Botones, Entradas).
-* Capturar eventos del usuario.
-* [cite_start]Comunicarse con el Modelo para solicitar operaciones, sin conocer detalles de la base de datos[cite: 1101, 1137].
+### 2. Capa de Modelo (`modelo.py`) 🧠
+* **Función:** Es el "cerebro". Contiene la lógica de negocio y el acceso a datos (DAO).
+* **Componentes:**
+    * [cite_start]`Clase Contacto`: Representa la entidad principal (blueprint)[cite: 20].
+    * [cite_start]`Clase AdministradorDB`: Centraliza la conexión y las operaciones SQL (INSERT, UPDATE, DELETE, SELECT)[cite: 26].
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
 
-* **Lenguaje:** Python 3.
-* **Interfaz Gráfica:** `customtkinter` (Wrapper moderno de Tkinter).
-* **Base de Datos:** `sqlite3` (Motor nativo de Python).
-* **Paradigma:** Programación Orientada a Objetos (POO).
+| Tecnología | Uso en el proyecto |
+| :--- | :--- |
+| **Python** | Lenguaje principal del backend y frontend. |
+| **SQLite3** | Motor de base de datos relacional ligero y eficiente. |
+| **CustomTkinter** | Librería para interfaces gráficas modernas (wrapper de Tkinter). |
+| **POO** | Paradigma usado para modelar `Contactos` y el `AdministradorDB`. |
 
 ---
 
-## 🚀 Instrucciones de Ejecución
+## 📂 Estructura del Proyecto
 
-Sigue estos pasos para probar el proyecto en tu máquina local:
-
-### 1. Prerrequisitos
-Asegúrate de tener Python instalado. Además, necesitarás instalar la librería gráfica externa:
-
-```bash
-pip install customtkinter
+```text
+📁 Agenda-Contactos
+│
+├── main.py          # Interfaz Gráfica y Control de Eventos (Frontend)
+├── modelo.py        # Lógica de Negocio y Conexión a Base de Datos (Backend)
+├── agenda.db        # Archivo de Base de Datos (Se genera automáticamente)
+├── Documentacion.pdf # Documentación técnica detallada
+└── README.md        # Este archivo
